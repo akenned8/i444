@@ -5,12 +5,14 @@ const assert = require('assert');
 class Sensors {
 
   constructor() {
-    //@TODO
+    this.clear();
   }
 
   /** Clear out all data from this object. */
   async clear() {
-    //@TODO
+    this.sensors= new Map();
+    this.sensortypes= new Map();
+    this.sensordata = new Map();
   }
 
   /** Subject to field validation as per FN_INFOS.addSensorType,
@@ -21,7 +23,7 @@ class Sensors {
    */
   async addSensorType(info) {
     const sensorType = validate('addSensorType', info);
-    //@TODO
+    this.sensortypes.set(sensorType.id , sensorType);
   }
   
   /** Subject to field validation as per FN_INFOS.addSensor, add
@@ -32,7 +34,7 @@ class Sensors {
    */
   async addSensor(info) {
     const sensor = validate('addSensor', info);
-    //@TODO
+    this.sensors.set(sensor.id , sensor);
   }
 
   /** Subject to field validation as per FN_INFOS.addSensorData, add
@@ -44,7 +46,14 @@ class Sensors {
    */
   async addSensorData(info) {
     const sensorData = validate('addSensorData', info);
-    //@TODO
+    if(this.sensordata.get(sensorData.id) && sensorData.timestamp < this.sensordata.get(sensorData.id).timestamp) {
+      return;
+    }
+    else {
+      this.sensordata.set(sensorData.id , sensorData);
+    }
+    
+    
   }
 
   /** Subject to validation of search-parameters in info as per
@@ -70,7 +79,20 @@ class Sensors {
    */
   async findSensorTypes(info) {
     const searchSpecs = validate('findSensorTypes', info);
-    //@TODO
+    
+    
+    var counter = 0;
+    for(var value of this.sensortypes.values()) {
+      if(counter >= searchSpecs.index && counter < searchSpecs.count) {
+        /*if(searchSpecs.id ) {
+
+        }*/
+        console.log(value);
+      }
+      counter++;
+    }
+    
+    console.log(searchSpecs);
     return {};
   }
   
