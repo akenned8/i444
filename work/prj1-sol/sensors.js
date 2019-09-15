@@ -34,6 +34,10 @@ class Sensors {
    */
   async addSensor(info) {
     const sensor = validate('addSensor', info);
+    if (!this.sensortypes.has(sensor.model)) {
+      throw [ `no model ${sensor.model} sensor type` ];
+      return;
+    }
     this.sensors.set(sensor.id , sensor);
   }
 
@@ -46,14 +50,18 @@ class Sensors {
    */
   async addSensorData(info) {
     const sensorData = validate('addSensorData', info);
-    if(this.sensordata.get(sensorData.id) && sensorData.timestamp < this.sensordata.get(sensorData.id).timestamp) {
+    // if((this.sensordata.get(sensorData.id)) && (sensorData.timestamp < this.sensordata.get(sensorData.id).timestamp)) {
+    //   throw ['trying to add an outdated piece of data'];
+    //   return;
+    // }
+    if (!this.sensors.has(sensorData.sensorId)) {
+      throw [ `no sensor with id ${sensorData.sensorId} when adding sensor data` ];
       return;
     }
+
     else {
       this.sensordata.set(sensorData.id , sensorData);
-    }
-    
-    
+    }  
   }
 
   /** Subject to validation of search-parameters in info as per
@@ -79,21 +87,54 @@ class Sensors {
    */
   async findSensorTypes(info) {
     const searchSpecs = validate('findSensorTypes', info);
-    
-    
-    var counter = 0;
-    for(var value of this.sensortypes.values()) {
-      if(counter >= searchSpecs.index && counter < searchSpecs.count) {
-        /*if(searchSpecs.id ) {
-
-        }*/
-        console.log(value);
-      }
-      counter++;
-    }
-    
     console.log(searchSpecs);
-    return {};
+
+    /*creating data structures*/
+    let sensortypesarr = []; 
+    for(let temp of this.sensortypes.values()) {
+      sensortypesarr.push(temp);
+    }
+    sensortypesarr.sort((a, b) => (a.id > b.id) ? 1: -1);
+
+    let retobj = {
+      nextIndex: searchSpecs.index + searchSpecs.count,
+      data: []
+    };
+
+    if(searchSpecs.id) {
+      retobj.data.push(this.sensortypes.get(searchSpecs.id));
+      return retobj;
+    }
+    if(!(searchSpecs.id) && !(searchSpecs.manufacturer) && !(searchSpecs.modelNumber) && !(searchSpecs.quantity) && !(searchSpecs.unit)) {
+      let counter = searchSpecs.index;
+      while(counter < searchSpecs.index + searchSpecs.count) {
+        retobj.data.push(sensortypesarr[counter]); 
+        counter++; 
+      }
+    }
+    else {
+      retobj.nextIndex = -1;
+      var counter = 0;
+      for(let i = searchSpecs.index; i < sensortypesarr.length && counter < searchSpecs.count; i++) { 
+          if(searchSpecs.manufacturer === sensortypesarr[i].manufacturer) {
+            retobj.data.push(sensortypesarr[i]);
+            counter++;
+          }
+          if(searchSpecs.modelNumber === sensortypesarr[i].modelNumber) {
+            retobj.data.push(sensortypesarr[i]);
+            counter++;
+          }
+          if(searchSpecs.quantity === sensortypesarr[i].quantity) {
+            retobj.data.push(sensortypesarr[i]);
+            counter++;
+          }
+          if(searchSpecs.unit === sensortypesarr[i].unit) {
+            retobj.data.push(sensortypesarr[i]);
+            counter++;
+          } 
+      } 
+    } 
+    return retobj;
   }
   
   /** Subject to validation of search-parameters in info as per
@@ -123,8 +164,49 @@ class Sensors {
    */
   async findSensors(info) {
     const searchSpecs = validate('findSensors', info);
-    //@TODO
-    return {};
+    console.log(searchSpecs);
+
+    var sensorarr = [];
+    for(var temp of this.sensors.values()) {
+      sensorarr.push(temp);
+    }
+    sensorarr.sort((a, b) => (a.id > b.id) ? 1: -1);
+    let retobj = {
+      nextIndex: searchSpecs.index + searchSpecs.count,
+      data: []
+    };
+
+    if(searchSpecs.id) {
+      retobj.data.push(this.sensors.get(searchSpecs.id))
+      if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(this.sensors.get(searchSpecs.id).model));
+      return retobj;
+    }
+
+    if(!(searchSpecs.id) && !(searchSpecs.model) && !(searchSpecs.period)) {
+      var counter = searchSpecs.index;
+      while(counter < searchSpecs.index + searchSpecs.count) {
+        retobj.data.push(sensorarr[counter]);
+        if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(sensorarr[counter].model));
+        counter++;
+      }
+    }
+    else {
+      let counter = 0;
+      for(let i = searchSpecs.index; i < sensorarr.length && counter < searchSpecs.count; i++) { 
+          if(searchSpecs.model === sensorarr[i].model) {
+            retobj.data.push(sensorarr[i]);
+            if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(sensorarr[i].model));
+            counter++;
+          }
+          if(searchSpecs.period === sensorarr[i].period) {
+            retobj.data.push(sensorarr[i]);
+            if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(sensorarr[i].model));
+            counter++;
+          }
+      }
+    }
+    retobj.data.sort((a, b) => (a.id > b.id) ? 1: -1);
+    return retobj;
   }
   
   /** Subject to validation of search-parameters in info as per
