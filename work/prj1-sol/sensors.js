@@ -36,8 +36,8 @@ class Sensors {
     const sensor = validate('addSensor', info);
     if (!this.sensortypes.has(sensor.model)) {
       throw [ `no model ${sensor.model} sensor type` ];
-      return;
     }
+
     this.sensors.set(sensor.id , sensor);
   }
 
@@ -50,18 +50,14 @@ class Sensors {
    */
   async addSensorData(info) {
     const sensorData = validate('addSensorData', info);
-    // if((this.sensordata.get(sensorData.id)) && (sensorData.timestamp < this.sensordata.get(sensorData.id).timestamp)) {
-    //   throw ['trying to add an outdated piece of data'];
-    //   return;
-    // }
     if (!this.sensors.has(sensorData.sensorId)) {
       throw [ `no sensor with id ${sensorData.sensorId} when adding sensor data` ];
-      return;
     }
 
-    else {
-      this.sensordata.set(sensorData.id , sensorData);
-    }  
+    if(!this.sensordata.has(sensorData.sensorId)) {
+      this.sensordata.set(sensorData.sensorId , [])
+    }
+    this.sensordata.get(sensorData.sensorId ).push(sensorData); 
   }
 
   /** Subject to validation of search-parameters in info as per
@@ -87,24 +83,32 @@ class Sensors {
    */
   async findSensorTypes(info) {
     const searchSpecs = validate('findSensorTypes', info);
-    console.log(searchSpecs);
+    
+    /*error handling*/
+    if (searchSpecs.id!==null && !this.sensortypes.has(searchSpecs.id)) {
+      throw [ `unknown sensor id for sensor-type: ${searchSpecs.id}` ];
+    }
 
-    /*creating data structures*/
+    /*creating data structures, a sorted array for proper return order*/
     let sensortypesarr = []; 
     for(let temp of this.sensortypes.values()) {
       sensortypesarr.push(temp);
     }
     sensortypesarr.sort((a, b) => (a.id > b.id) ? 1: -1);
 
+    /*retobj is the return object*/
     let retobj = {
       nextIndex: searchSpecs.index + searchSpecs.count,
       data: []
     };
 
+/*option 1: we get the id and return from the map in O91)*/
     if(searchSpecs.id) {
+      retobj.nextIndex = searchSpecs.index +1;
       retobj.data.push(this.sensortypes.get(searchSpecs.id));
       return retobj;
     }
+    /*option2: all we have is index and count*/
     if(!(searchSpecs.id) && !(searchSpecs.manufacturer) && !(searchSpecs.modelNumber) && !(searchSpecs.quantity) && !(searchSpecs.unit)) {
       let counter = searchSpecs.index;
       while(counter < searchSpecs.index + searchSpecs.count) {
@@ -112,6 +116,7 @@ class Sensors {
         counter++; 
       }
     }
+    /*option 3: we have other elements, like quantity=pressure*/
     else {
       retobj.nextIndex = -1;
       var counter = 0;
@@ -164,43 +169,53 @@ class Sensors {
    */
   async findSensors(info) {
     const searchSpecs = validate('findSensors', info);
-    console.log(searchSpecs);
+    
+    /*error handling*/
+    if (searchSpecs.id !== null && !this.sensors.has(searchSpecs.id)) {
+      throw [ `cannot find sensor for id: ${searchSpecs.id}` ];
+    }
 
+    /*Creating data structure, sorted array works best in this instance*/
     var sensorarr = [];
     for(var temp of this.sensors.values()) {
       sensorarr.push(temp);
     }
     sensorarr.sort((a, b) => (a.id > b.id) ? 1: -1);
+    /*we return retobj*/
     let retobj = {
       nextIndex: searchSpecs.index + searchSpecs.count,
       data: []
     };
 
+    /*Option 1: we get the id and return the matching sensor from the map O(1)*/
     if(searchSpecs.id) {
+      retobj.nextIndex = searchSpecs.index +1;
       retobj.data.push(this.sensors.get(searchSpecs.id))
-      if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(this.sensors.get(searchSpecs.id).model));
+      if(searchSpecs.doDetail) retobj.sensorType = (this.sensortypes.get(this.sensors.get(searchSpecs.id).model));
       return retobj;
     }
-
+    /*Option 2: all we get is index and count. we use the sorted array to return sensors ranked by id O(count)*/
     if(!(searchSpecs.id) && !(searchSpecs.model) && !(searchSpecs.period)) {
       var counter = searchSpecs.index;
       while(counter < searchSpecs.index + searchSpecs.count) {
         retobj.data.push(sensorarr[counter]);
-        if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(sensorarr[counter].model));
+        if(searchSpecs.doDetail) retobj.sensorType = (this.sensortypes.get(sensorarr[counter].model));
         counter++;
       }
     }
+    /*Option 3: we have multiple parameters, like model=h3-47b*/
     else {
+      /*counter makes sure we only return count number of sensors.*/
       let counter = 0;
       for(let i = searchSpecs.index; i < sensorarr.length && counter < searchSpecs.count; i++) { 
           if(searchSpecs.model === sensorarr[i].model) {
             retobj.data.push(sensorarr[i]);
-            if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(sensorarr[i].model));
+            if(searchSpecs.doDetail) retobj.sensorType = (this.sensortypes.get(sensorarr[i].model));
             counter++;
           }
           if(searchSpecs.period === sensorarr[i].period) {
             retobj.data.push(sensorarr[i]);
-            if(searchSpecs.doDetail) retobj.data.push(this.sensortypes.get(sensorarr[i].model));
+            if(searchSpecs.doDetail) retobj.sensorType = (this.sensortypes.get(sensorarr[i].model));
             counter++;
           }
       }
@@ -246,8 +261,65 @@ class Sensors {
    */
   async findSensorData(info) {
     const searchSpecs = validate('findSensorData', info);
-    //@TODO
-    return {};
+    
+    /*error handling*/
+    if (!this.sensors.has(searchSpecs.sensorId)) {
+      throw [ `unknown sensor id when retrieving sensor data: ${searchSpecs.sensorId}` ];
+    }
+
+    /*create list from everything in sensordata map, chop off any values not in timestamp range, sort*/
+    let sensordataarr = this.sensordata.get(searchSpecs.sensorId);
+    sensordataarr = sensordataarr.filter(e => e.timestamp <= searchSpecs.timestamp);
+    sensordataarr.sort((a, b) => (a.timestamp < b.timestamp) ? 1: -1);
+
+    let retobj = {
+      data: []
+    };
+    
+    let sensorinstance = this.sensors.get(searchSpecs.sensorId);
+
+    let lowerLimit = (this.sensortypes.get(sensorinstance.model)).limits.min;
+    let upperLimit = (this.sensortypes.get(sensorinstance.model)).limits.max;
+    let lowerRange = (sensorinstance).expected.min;
+    let upperRange = (sensorinstance).expected.max;
+
+    let counter = 0;
+    for(let i = 0; i < sensordataarr.length && counter < searchSpecs.count; i++) {
+      /*retobj.data is going to be filled with obj Objects which hold the timestamp, value, and status */
+      let obj = {};
+      let current = sensordataarr[i];
+      /*since we have the correct range, and its ordered, now we just need to check on the 3 status possibilities*/
+      if(searchSpecs.statuses.has("ok") && (Number(current.value) >= lowerRange && Number(current.value) <= upperRange)) {
+        obj.timestamp = sensordataarr[i].timestamp;
+        obj.value = sensordataarr[i].value;
+        obj.status = "ok";
+        
+        counter++;
+      }
+      else if(searchSpecs.statuses.has("error") && (Number(current.value) < lowerLimit || Number(current.value) > upperLimit)) {
+        obj.timestamp = sensordataarr[i].timestamp;
+        obj.value = sensordataarr[i].value;
+        obj.status = "error";
+        
+        counter++;
+      }
+      else if(searchSpecs.statuses.has("outOfRange") && ((Number(current.value) < lowerRange && Number(current.value) >= lowerLimit) || (Number(current.value) <= upperLimit && Number(current.value) > upperRange))) {
+        obj.timestamp = sensordataarr[i].timestamp;
+        obj.value = sensordataarr[i].value;
+        obj.status = "outOfRange";
+        
+        counter++;
+      }
+      else {
+        continue;
+      }
+      retobj['data'].push(obj);
+      if(searchSpecs.doDetail) {
+        retobj.sensorType = this.sensortypes.get(sensorinstance.model);
+        retobj.sensor = sensorinstance;
+      } 
+    }
+    return retobj;
   }
   
   
