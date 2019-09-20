@@ -38,8 +38,6 @@ function intToBitIndexes(int) {
 function multiIndex(obj , indexes) {
   return indexes.split('.').reduce((acc, i) =>  i ? acc[i] : acc , obj);
 }
-console.log("yo")
-console.log(multiIndex({a: [ 22, { b: 42} ]}, 'a.1.b'));
 
 /*referenced stackoverflow*/
 function zip(list1 , list2) {
