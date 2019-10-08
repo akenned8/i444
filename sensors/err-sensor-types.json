@@ -1,0 +1,12 @@
+[
+  {
+    "manufacturer": "General Electric",
+    "modelNumber": "T37C",
+    "quantity": "",
+    "unit": "C",
+    "limits": {
+      "min": "100x",
+      "max": "800"
+    }
+  }
+]

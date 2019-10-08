@@ -1,0 +1,12 @@
+[
+  {
+    "sensorId": "",
+    "timestamp": "1567217758561.0",
+    "value": "189"
+  },
+  {
+    "sensorId": "unknown",
+    "timestamp": "1567217758561.AA",
+    "value": "+189"
+  }
+]

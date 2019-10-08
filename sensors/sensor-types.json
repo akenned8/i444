@@ -1,0 +1,90 @@
+[
+  {
+    "id": "ge-t37c",
+    "manufacturer": "General Electric",
+    "modelNumber": "T37C",
+    "quantity": "temperature",
+    "unit": "C",
+    "limits": {
+      "min": "100",
+      "max": "800"
+    }
+  },
+  {
+    "id": "ge-p92b",
+    "manufacturer": "General Electric",
+    "modelNumber": "P92B",
+    "quantity": "pressure",
+    "unit": "PSI",
+    "limits": {
+      "min": "10",
+      "max": "200"
+    }
+  },
+  {
+    "id": "ge-h47a",
+    "manufacturer": "General Electric",
+    "modelNumber": "H47A",
+    "quantity": "humidity",
+    "unit": "%",
+    "limits": {
+      "min": "0",
+      "max": "120"
+    }
+  },
+  {
+    "id": "ge-f26x",
+    "manufacturer": "General Electric",
+    "modelNumber": "F26x",
+    "quantity": "flow",
+    "unit": "gpm",
+    "limits": {
+      "min": "0",
+      "max": "200"
+    }
+  },
+  {
+    "id": "hw-t42k",
+    "manufacturer": "Honeywell",
+    "modelNumber": "T42K",
+    "quantity": "temperature",
+    "unit": "C",
+    "limits": {
+      "min": "-40",
+      "max": "140"
+    }
+  },
+  {
+    "id": "hw-p443jk",
+    "manufacturer": "Honeywell",
+    "modelNumber": "P443JK",
+    "quantity": "pressure",
+    "unit": "PSI",
+    "limits": {
+      "min": "0.5",
+      "max": "50"
+    }
+  },
+  {
+    "id": "hw-h254j",
+    "manufacturer": "Honeywell",
+    "modelNumber": "H254J",
+    "quantity": "humidity",
+    "unit": "%",
+    "limits": {
+      "min": "0",
+      "max": "120"
+    }
+  },
+  {
+    "id": "hw-f754jk",
+    "manufacturer": "Honeywell",
+    "modelNumber": "F754JK",
+    "quantity": "flow",
+    "unit": "gpm",
+    "limits": {
+      "min": "0",
+      "max": "30"
+    }
+  }
+]

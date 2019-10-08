@@ -1,0 +1,902 @@
+[
+  {
+    "id": "233y",
+    "model": "ge-t37c",
+    "period": "93",
+    "expected": {
+      "min": "190",
+      "max": "755"
+    }
+  },
+  {
+    "id": "234k",
+    "model": "ge-p92b",
+    "period": "5",
+    "expected": {
+      "min": "20",
+      "max": "159"
+    }
+  },
+  {
+    "id": "2356",
+    "model": "ge-h47a",
+    "period": "23",
+    "expected": {
+      "min": "23",
+      "max": "102"
+    }
+  },
+  {
+    "id": "235s",
+    "model": "ge-f26x",
+    "period": "77",
+    "expected": {
+      "min": "29",
+      "max": "134"
+    }
+  },
+  {
+    "id": "236e",
+    "model": "hw-t42k",
+    "period": "77",
+    "expected": {
+      "min": "-10",
+      "max": "131"
+    }
+  },
+  {
+    "id": "2370",
+    "model": "hw-p443jk",
+    "period": "45",
+    "expected": {
+      "min": "2.5",
+      "max": "30.5"
+    }
+  },
+  {
+    "id": "237m",
+    "model": "hw-h254j",
+    "period": "10",
+    "expected": {
+      "min": "12",
+      "max": "94"
+    }
+  },
+  {
+    "id": "2388",
+    "model": "hw-f754jk",
+    "period": "20",
+    "expected": {
+      "min": "1",
+      "max": "28"
+    }
+  },
+  {
+    "id": "238u",
+    "model": "ge-t37c",
+    "period": "63",
+    "expected": {
+      "min": "156",
+      "max": "634"
+    }
+  },
+  {
+    "id": "239g",
+    "model": "ge-p92b",
+    "period": "96",
+    "expected": {
+      "min": "36",
+      "max": "164"
+    }
+  },
+  {
+    "id": "23a2",
+    "model": "ge-h47a",
+    "period": "97",
+    "expected": {
+      "min": "22",
+      "max": "86"
+    }
+  },
+  {
+    "id": "23ao",
+    "model": "ge-f26x",
+    "period": "20",
+    "expected": {
+      "min": "16",
+      "max": "139"
+    }
+  },
+  {
+    "id": "23ba",
+    "model": "hw-t42k",
+    "period": "95",
+    "expected": {
+      "min": "-37",
+      "max": "119"
+    }
+  },
+  {
+    "id": "23bw",
+    "model": "hw-p443jk",
+    "period": "28",
+    "expected": {
+      "min": "8.5",
+      "max": "49.5"
+    }
+  },
+  {
+    "id": "23ci",
+    "model": "hw-h254j",
+    "period": "84",
+    "expected": {
+      "min": "34",
+      "max": "100"
+    }
+  },
+  {
+    "id": "23d4",
+    "model": "hw-f754jk",
+    "period": "20",
+    "expected": {
+      "min": "2",
+      "max": "29"
+    }
+  },
+  {
+    "id": "23dq",
+    "model": "ge-t37c",
+    "period": "96",
+    "expected": {
+      "min": "336",
+      "max": "732"
+    }
+  },
+  {
+    "id": "23ec",
+    "model": "ge-p92b",
+    "period": "54",
+    "expected": {
+      "min": "11",
+      "max": "178"
+    }
+  },
+  {
+    "id": "23ey",
+    "model": "ge-h47a",
+    "period": "83",
+    "expected": {
+      "min": "44",
+      "max": "116"
+    }
+  },
+  {
+    "id": "23fk",
+    "model": "ge-f26x",
+    "period": "78",
+    "expected": {
+      "min": "34",
+      "max": "193"
+    }
+  },
+  {
+    "id": "23g6",
+    "model": "hw-t42k",
+    "period": "13",
+    "expected": {
+      "min": "-28",
+      "max": "67"
+    }
+  },
+  {
+    "id": "23gs",
+    "model": "hw-p443jk",
+    "period": "23",
+    "expected": {
+      "min": "17.5",
+      "max": "47.5"
+    }
+  },
+  {
+    "id": "23he",
+    "model": "hw-h254j",
+    "period": "78",
+    "expected": {
+      "min": "2",
+      "max": "89"
+    }
+  },
+  {
+    "id": "23i0",
+    "model": "hw-f754jk",
+    "period": "34",
+    "expected": {
+      "min": "11",
+      "max": "28"
+    }
+  },
+  {
+    "id": "23im",
+    "model": "ge-t37c",
+    "period": "25",
+    "expected": {
+      "min": "191",
+      "max": "778"
+    }
+  },
+  {
+    "id": "23j8",
+    "model": "ge-p92b",
+    "period": "61",
+    "expected": {
+      "min": "44",
+      "max": "188"
+    }
+  },
+  {
+    "id": "23ju",
+    "model": "ge-h47a",
+    "period": "55",
+    "expected": {
+      "min": "8",
+      "max": "98"
+    }
+  },
+  {
+    "id": "23kg",
+    "model": "ge-f26x",
+    "period": "67",
+    "expected": {
+      "min": "6",
+      "max": "166"
+    }
+  },
+  {
+    "id": "23l2",
+    "model": "hw-t42k",
+    "period": "10",
+    "expected": {
+      "min": "-23",
+      "max": "106"
+    }
+  },
+  {
+    "id": "23lo",
+    "model": "hw-p443jk",
+    "period": "50",
+    "expected": {
+      "min": "7.5",
+      "max": "49.5"
+    }
+  },
+  {
+    "id": "23ma",
+    "model": "hw-h254j",
+    "period": "42",
+    "expected": {
+      "min": "21",
+      "max": "120"
+    }
+  },
+  {
+    "id": "23mw",
+    "model": "hw-f754jk",
+    "period": "78",
+    "expected": {
+      "min": "1",
+      "max": "23"
+    }
+  },
+  {
+    "id": "23ni",
+    "model": "ge-t37c",
+    "period": "59",
+    "expected": {
+      "min": "366",
+      "max": "770"
+    }
+  },
+  {
+    "id": "23o4",
+    "model": "ge-p92b",
+    "period": "75",
+    "expected": {
+      "min": "54",
+      "max": "198"
+    }
+  },
+  {
+    "id": "23oq",
+    "model": "ge-h47a",
+    "period": "68",
+    "expected": {
+      "min": "1",
+      "max": "92"
+    }
+  },
+  {
+    "id": "23pc",
+    "model": "ge-f26x",
+    "period": "82",
+    "expected": {
+      "min": "61",
+      "max": "188"
+    }
+  },
+  {
+    "id": "23py",
+    "model": "hw-t42k",
+    "period": "4",
+    "expected": {
+      "min": "-10",
+      "max": "85"
+    }
+  },
+  {
+    "id": "23qk",
+    "model": "hw-p443jk",
+    "period": "96",
+    "expected": {
+      "min": "3.5",
+      "max": "46.5"
+    }
+  },
+  {
+    "id": "23r6",
+    "model": "hw-h254j",
+    "period": "60",
+    "expected": {
+      "min": "23",
+      "max": "115"
+    }
+  },
+  {
+    "id": "23rs",
+    "model": "hw-f754jk",
+    "period": "31",
+    "expected": {
+      "min": "4",
+      "max": "28"
+    }
+  },
+  {
+    "id": "23se",
+    "model": "ge-t37c",
+    "period": "52",
+    "expected": {
+      "min": "172",
+      "max": "790"
+    }
+  },
+  {
+    "id": "23t0",
+    "model": "ge-p92b",
+    "period": "5",
+    "expected": {
+      "min": "38",
+      "max": "169"
+    }
+  },
+  {
+    "id": "23tm",
+    "model": "ge-h47a",
+    "period": "71",
+    "expected": {
+      "min": "28",
+      "max": "111"
+    }
+  },
+  {
+    "id": "23u8",
+    "model": "ge-f26x",
+    "period": "78",
+    "expected": {
+      "min": "14",
+      "max": "145"
+    }
+  },
+  {
+    "id": "23uu",
+    "model": "hw-t42k",
+    "period": "77",
+    "expected": {
+      "min": "-31",
+      "max": "117"
+    }
+  },
+  {
+    "id": "23vg",
+    "model": "hw-p443jk",
+    "period": "27",
+    "expected": {
+      "min": "15.5",
+      "max": "47.5"
+    }
+  },
+  {
+    "id": "23w2",
+    "model": "hw-h254j",
+    "period": "85",
+    "expected": {
+      "min": "14",
+      "max": "118"
+    }
+  },
+  {
+    "id": "23wo",
+    "model": "hw-f754jk",
+    "period": "36",
+    "expected": {
+      "min": "1",
+      "max": "23"
+    }
+  },
+  {
+    "id": "23xa",
+    "model": "ge-t37c",
+    "period": "72",
+    "expected": {
+      "min": "324",
+      "max": "766"
+    }
+  },
+  {
+    "id": "23xw",
+    "model": "ge-p92b",
+    "period": "73",
+    "expected": {
+      "min": "57",
+      "max": "190"
+    }
+  },
+  {
+    "id": "23yi",
+    "model": "ge-h47a",
+    "period": "38",
+    "expected": {
+      "min": "37",
+      "max": "112"
+    }
+  },
+  {
+    "id": "23z4",
+    "model": "ge-f26x",
+    "period": "7",
+    "expected": {
+      "min": "29",
+      "max": "153"
+    }
+  },
+  {
+    "id": "23zq",
+    "model": "hw-t42k",
+    "period": "32",
+    "expected": {
+      "min": "-35",
+      "max": "63"
+    }
+  },
+  {
+    "id": "240c",
+    "model": "hw-p443jk",
+    "period": "21",
+    "expected": {
+      "min": "18.5",
+      "max": "48.5"
+    }
+  },
+  {
+    "id": "240y",
+    "model": "hw-h254j",
+    "period": "85",
+    "expected": {
+      "min": "11",
+      "max": "100"
+    }
+  },
+  {
+    "id": "241k",
+    "model": "hw-f754jk",
+    "period": "19",
+    "expected": {
+      "min": "10",
+      "max": "27"
+    }
+  },
+  {
+    "id": "2426",
+    "model": "ge-t37c",
+    "period": "10",
+    "expected": {
+      "min": "185",
+      "max": "712"
+    }
+  },
+  {
+    "id": "242s",
+    "model": "ge-p92b",
+    "period": "36",
+    "expected": {
+      "min": "50",
+      "max": "172"
+    }
+  },
+  {
+    "id": "243e",
+    "model": "ge-h47a",
+    "period": "87",
+    "expected": {
+      "min": "15",
+      "max": "114"
+    }
+  },
+  {
+    "id": "2440",
+    "model": "ge-f26x",
+    "period": "75",
+    "expected": {
+      "min": "29",
+      "max": "134"
+    }
+  },
+  {
+    "id": "244m",
+    "model": "hw-t42k",
+    "period": "5",
+    "expected": {
+      "min": "10",
+      "max": "128"
+    }
+  },
+  {
+    "id": "2458",
+    "model": "hw-p443jk",
+    "period": "25",
+    "expected": {
+      "min": "1.5",
+      "max": "36.5"
+    }
+  },
+  {
+    "id": "245u",
+    "model": "hw-h254j",
+    "period": "21",
+    "expected": {
+      "min": "7",
+      "max": "104"
+    }
+  },
+  {
+    "id": "246g",
+    "model": "hw-f754jk",
+    "period": "72",
+    "expected": {
+      "min": "5",
+      "max": "24"
+    }
+  },
+  {
+    "id": "2472",
+    "model": "ge-t37c",
+    "period": "5",
+    "expected": {
+      "min": "249",
+      "max": "704"
+    }
+  },
+  {
+    "id": "247o",
+    "model": "ge-p92b",
+    "period": "70",
+    "expected": {
+      "min": "26",
+      "max": "190"
+    }
+  },
+  {
+    "id": "248a",
+    "model": "ge-h47a",
+    "period": "19",
+    "expected": {
+      "min": "36",
+      "max": "112"
+    }
+  },
+  {
+    "id": "248w",
+    "model": "ge-f26x",
+    "period": "37",
+    "expected": {
+      "min": "14",
+      "max": "191"
+    }
+  },
+  {
+    "id": "249i",
+    "model": "hw-t42k",
+    "period": "52",
+    "expected": {
+      "min": "-28",
+      "max": "88"
+    }
+  },
+  {
+    "id": "24a4",
+    "model": "hw-p443jk",
+    "period": "48",
+    "expected": {
+      "min": "7.5",
+      "max": "42.5"
+    }
+  },
+  {
+    "id": "24aq",
+    "model": "hw-h254j",
+    "period": "56",
+    "expected": {
+      "min": "31",
+      "max": "108"
+    }
+  },
+  {
+    "id": "24bc",
+    "model": "hw-f754jk",
+    "period": "81",
+    "expected": {
+      "min": "4",
+      "max": "28"
+    }
+  },
+  {
+    "id": "24by",
+    "model": "ge-t37c",
+    "period": "41",
+    "expected": {
+      "min": "122",
+      "max": "598"
+    }
+  },
+  {
+    "id": "24ck",
+    "model": "ge-p92b",
+    "period": "1",
+    "expected": {
+      "min": "53",
+      "max": "193"
+    }
+  },
+  {
+    "id": "24d6",
+    "model": "ge-h47a",
+    "period": "14",
+    "expected": {
+      "min": "12",
+      "max": "81"
+    }
+  },
+  {
+    "id": "24ds",
+    "model": "ge-f26x",
+    "period": "88",
+    "expected": {
+      "min": "12",
+      "max": "118"
+    }
+  },
+  {
+    "id": "24ee",
+    "model": "hw-t42k",
+    "period": "38",
+    "expected": {
+      "min": "38",
+      "max": "131"
+    }
+  },
+  {
+    "id": "24f0",
+    "model": "hw-p443jk",
+    "period": "7",
+    "expected": {
+      "min": "18.5",
+      "max": "43.5"
+    }
+  },
+  {
+    "id": "24fm",
+    "model": "hw-h254j",
+    "period": "37",
+    "expected": {
+      "min": "7",
+      "max": "93"
+    }
+  },
+  {
+    "id": "24g8",
+    "model": "hw-f754jk",
+    "period": "7",
+    "expected": {
+      "min": "8",
+      "max": "28"
+    }
+  },
+  {
+    "id": "24gu",
+    "model": "ge-t37c",
+    "period": "51",
+    "expected": {
+      "min": "247",
+      "max": "676"
+    }
+  },
+  {
+    "id": "24hg",
+    "model": "ge-p92b",
+    "period": "49",
+    "expected": {
+      "min": "25",
+      "max": "163"
+    }
+  },
+  {
+    "id": "24i2",
+    "model": "ge-h47a",
+    "period": "35",
+    "expected": {
+      "min": "4",
+      "max": "112"
+    }
+  },
+  {
+    "id": "24io",
+    "model": "ge-f26x",
+    "period": "38",
+    "expected": {
+      "min": "28",
+      "max": "179"
+    }
+  },
+  {
+    "id": "24ja",
+    "model": "hw-t42k",
+    "period": "68",
+    "expected": {
+      "min": "-28",
+      "max": "106"
+    }
+  },
+  {
+    "id": "24jw",
+    "model": "hw-p443jk",
+    "period": "68",
+    "expected": {
+      "min": "3.5",
+      "max": "43.5"
+    }
+  },
+  {
+    "id": "24ki",
+    "model": "hw-h254j",
+    "period": "28",
+    "expected": {
+      "min": "27",
+      "max": "101"
+    }
+  },
+  {
+    "id": "24l4",
+    "model": "hw-f754jk",
+    "period": "11",
+    "expected": {
+      "min": "4",
+      "max": "26"
+    }
+  },
+  {
+    "id": "24lq",
+    "model": "ge-t37c",
+    "period": "44",
+    "expected": {
+      "min": "289",
+      "max": "764"
+    }
+  },
+  {
+    "id": "24mc",
+    "model": "ge-p92b",
+    "period": "41",
+    "expected": {
+      "min": "57",
+      "max": "167"
+    }
+  },
+  {
+    "id": "24my",
+    "model": "ge-h47a",
+    "period": "92",
+    "expected": {
+      "min": "21",
+      "max": "96"
+    }
+  },
+  {
+    "id": "24nk",
+    "model": "ge-f26x",
+    "period": "78",
+    "expected": {
+      "min": "10",
+      "max": "155"
+    }
+  },
+  {
+    "id": "24o6",
+    "model": "hw-t42k",
+    "period": "20",
+    "expected": {
+      "min": "-1",
+      "max": "132"
+    }
+  },
+  {
+    "id": "24os",
+    "model": "hw-p443jk",
+    "period": "34",
+    "expected": {
+      "min": "3.5",
+      "max": "39.5"
+    }
+  },
+  {
+    "id": "24pe",
+    "model": "hw-h254j",
+    "period": "96",
+    "expected": {
+      "min": "27",
+      "max": "96"
+    }
+  },
+  {
+    "id": "24q0",
+    "model": "hw-f754jk",
+    "period": "78",
+    "expected": {
+      "min": "5",
+      "max": "28"
+    }
+  },
+  {
+    "id": "24qm",
+    "model": "ge-t37c",
+    "period": "53",
+    "expected": {
+      "min": "124",
+      "max": "736"
+    }
+  },
+  {
+    "id": "24r8",
+    "model": "ge-p92b",
+    "period": "63",
+    "expected": {
+      "min": "28",
+      "max": "152"
+    }
+  },
+  {
+    "id": "24ru",
+    "model": "ge-h47a",
+    "period": "55",
+    "expected": {
+      "min": "25",
+      "max": "99"
+    }
+  },
+  {
+    "id": "24sg",
+    "model": "ge-f26x",
+    "period": "98",
+    "expected": {
+      "min": "20",
+      "max": "186"
+    }
+  }
+]
