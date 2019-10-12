@@ -155,6 +155,7 @@ class Sensors {
       try {
         let res = await collection.find(searchSpecs).sort({id:1}).skip(tempindex).limit(tempcount).toArray();
         for(let x of res) {
+          delete x._id;
           retobj.data.push(x);
         } 
       }
@@ -231,6 +232,7 @@ class Sensors {
       try {
         let res = await collection.find(searchSpecs).sort({id:1}).skip(tempindex).limit(tempcount).toArray();
         for(let x of res) {
+          delete x._id;
           retobj.data.push(x);
         }   
       }
@@ -312,6 +314,7 @@ class Sensors {
       let res = await collection.find({sensorId:searchSpecs.sensorId}).sort({timestamp:-1}).toArray();
       sensortype = await collectionoftypes.findOne({id:sensor.model});
       
+      /*breaker is just an escape so we don't go over _count*/
       let breaker = 0;
       for(let x of res) {
         if(searchSpecs.timestamp && x.timestamp > searchSpecs.timestamp) {
