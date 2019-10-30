@@ -77,7 +77,7 @@ function doGetSensorDataIDTimestamp(app) {
       const results = await app.locals.sensors.findSensorData(q);
       results.data.splice(1,results.data.length);
       
-      if(results.data[0].timestamp != q.timestamp) {
+      if(results.data.length != 0 && results.data[0].timestamp != q.timestamp) {
       	const err = `no data for timestamp ${q.timestamp}`;
       	const mapped = mapError([ new AppError('NOT_FOUND', err) ]);
         res.status(mapped.status);
